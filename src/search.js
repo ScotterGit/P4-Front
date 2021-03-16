@@ -82,7 +82,9 @@ function Search(props) {
 
             setBuyQuantity(0)
 
-            alert('Success')
+            // alert('Success')
+
+            window.location.reload();
         }
 
     };
@@ -92,29 +94,28 @@ function Search(props) {
 
 
     return (
-        <div className={'border p-5'}>
+        <div className={'border-blue-400 p-5'}>
 
             <div className="grid grid-cols-2">
-                <div className={'border p-5'}>
-                    <input value={inputText} onChange={onInputChange} type="text" className={'border w-full p-3 rounded-full border-gray-300'}/>
+                <div className={'border border-blue-400 p-5'}>
+                    <input onChange={onInputChange} value={inputText.toUpperCase()} type="text" className={'border w-full p-3 rounded-full border-blue-400'}/>
                 </div>
-                <div className={'border p-5'}>
+                <div className={'border border-blue-400 p-5'}>
                     <span onClick={fetchQuote} className={'bg-gray-600 cursor-pointer p-2 rounded text-white text-xl pl-5 pr-5'}>Get Quote</span>
                 </div>
             </div>
 
             {ticker && <div className="grid grid-cols-2">
-                <div className={'border p-5'}>
+                <div className={'border-blue-400 p-5 text-gray-50'}>
                     {/* {currentStock && <h1 className={'text-2xl'}>{currentStock.data}</h1>} */}
                     <h1 className={'text-2xl'}>{ticker} : {currentStock && <span>{currentStock.data.currency} {currentStock.data.price}</span>}</h1>
                 </div>
-                <div className={'border p-5'}>
+                <div className={'border-blue-400 p-5'}>
 
                     <span>
-                        <input type="number" onChange={onBuyChange} className={'border'} value={buyQuantity}/> &nbsp;&nbsp;
+                        <input type="number" onChange={onBuyChange} className={'border-blue-400'} value={buyQuantity}/> &nbsp;&nbsp;
                         <span className={'bg-blue-600 cursor-pointer p-2 rounded text-white text-xl pl-5 pr-5'} onClick={buyStock}>Buy</span>&nbsp;&nbsp;&nbsp;
                     </span>
-                    {/* <span className={'bg-red-600 cursor-pointer p-2 rounded text-white text-xl pl-5 pr-5'}>Sell</span> */}
 
                 </div>
             </div>}
